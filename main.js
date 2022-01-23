@@ -1,9 +1,14 @@
 function preload(){
-
+   mustache=loadImage('https://i.postimg.cc/zGG24zXC/mustache.png');
 }
+
+noseX=0;
+noseY=0;
 
 function draw(){
     image(video, 0, 0, 300, 300);
+
+    image(mustache, noseX, noseY, 45, 45);
 
 }
 
@@ -13,9 +18,9 @@ function setup(){
 
     video= createCapture(VIDEO);
     video.size(300, 300);
-    video.hide()
+    video.hide();
 
-   posenet= ml5.poseNet(video, modelLoaded);
+   poseNet= ml5.poseNet(video, modelLoaded);
    poseNet.on('pose', gotPoses);
 }
 
@@ -26,8 +31,13 @@ function modelLoaded(){
 function gotPoses(results){
     if(results.length>0){
         console.log(results);
-        console.log("x= "+results[0].pose.nose.x);
-        console.log("y= "+results[0].pose.nose.y);
+        noseX= results[0].pose.nose.x;
+        noseY=results[0].pose.nose.y;
+        console.log("x= "+ noseX);
+        console.log("y= "+noseY);
     }
 }
 
+function take_snapshot(){
+    save('image.png');
+}
