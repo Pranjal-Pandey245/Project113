@@ -31,7 +31,7 @@ function modelLoaded(){
 function gotPoses(results){
     if(results.length>0){
         console.log(results);
-        noseX= results[0].pose.nose.x- 30;
+        noseX= results[0].pose.nose.x- 34;
         noseY=results[0].pose.nose.y+5;
         console.log("x= "+ noseX);
         console.log("y= "+noseY);
