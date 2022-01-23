@@ -8,7 +8,7 @@ noseY=0;
 function draw(){
     image(video, 0, 0, 300, 300);
 
-    image(mustache, noseX, noseY, 45, 45);
+    image(mustache, noseX, noseY, 55, 55);
 
 }
 
@@ -31,7 +31,7 @@ function modelLoaded(){
 function gotPoses(results){
     if(results.length>0){
         console.log(results);
-        noseX= results[0].pose.nose.x- 35;
+        noseX= results[0].pose.nose.x- 30;
         noseY=results[0].pose.nose.y+5;
         console.log("x= "+ noseX);
         console.log("y= "+noseY);
